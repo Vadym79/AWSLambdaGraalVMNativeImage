@@ -1,0 +1,1 @@
+View https://github.com/Vadym79/AWSLambdaJavaWithSpringBoot/tree/master/spring-boot-3.2-with-graalvm-native-image repo for the complete sample application
