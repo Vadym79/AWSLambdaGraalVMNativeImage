@@ -53,8 +53,8 @@ Resources:
       ApiStages: 
         - ApiId: !Ref MyApi
           Stage: !Ref Stage
-      UsagePlanName: AWSLambdaJava21SnapStartAPIUsagePlan
-      Description: Usage plan for AWSLambdaJava21SnapStartAPI
+      UsagePlanName: AWSLambdaJava21GraalVMNativeImageAPIUsagePlan
+      Description: Usage plan for AWSLambdaJava21GraalVMNativeImageAPI
       Quota:
           Limit: 500000
           Period: DAY
@@ -152,6 +152,6 @@ Resources:
       
 
 Outputs:
-  AWSLambdaJavaSnapStartApiEndpoint:
+  AWSLambdaJava21GraalVMNativeImageApiEndpoint:
     Description: "API Gateway endpoint URL for Prod stage for AWS Lambda Java 21 GraalVM Native Image"
     Value: !Sub "https://${MyApi}.execute-api.${AWS::Region}.amazonaws.com/prod/products"
