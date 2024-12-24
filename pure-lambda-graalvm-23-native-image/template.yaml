@@ -1,7 +1,7 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 Description: >
-  AWSLambdaJavaGraalVMNativeImage
+  AWS Lambda Java GraalVM 23 Native Image
   Sample SAM Template
 
 Parameters:
@@ -25,8 +25,8 @@ Resources:
     Properties:
       StageName: !Ref Stage
       TracingEnabled: true
-      Name: AWSLambdaJava21GraalVMNativeImageAPI
-      Description: Api for AWSLambdaJava21GraalVMNativeImage
+      Name: AWSLambdaJavaGraalVM23NativeImageAPI
+      Description: Api for AWSLambda Java GraalVM 23 NativeImage
       AccessLogSetting:
         DestinationArn: !Sub ${MyApiLogGroup.Arn} # This Log Group is already created within our SAM Template
         Format: "{'integrationLatency':'$context.integrationLatency', 'latency':'$context.responseLatency', 'requestId':'$context.requestId', 'ip': '$context.identity.sourceIp', 'caller':'$context.identity.caller', 'user':'$context.identity.user','requestTime':'$context.requestTime', 'xrayTraceId':'$context.xrayTraceId', 'wafResponseCode':'$context.wafResponseCode', 'httpMethod':'$context.httpMethod','resourcePath':'$context.resourcePath', 'status':'$context.status','protocol':'$context.protocol', 'responseLength':'$context.responseLength' }"
@@ -53,8 +53,8 @@ Resources:
       ApiStages: 
         - ApiId: !Ref MyApi
           Stage: !Ref Stage
-      UsagePlanName: AWSLambdaJava21GraalVMNativeImageAPIUsagePlan
-      Description: Usage plan for AWSLambdaJava21GraalVMNativeImageAPI
+      UsagePlanName: AWSLambdaJavaGraalVM23NativeImageAPIUsagePlan
+      Description: Usage plan for AWSLambdaJavaGraalVM23NativeImageAPI
       Quota:
           Limit: 500000
           Period: DAY
@@ -67,11 +67,11 @@ Resources:
     DependsOn:  
        - MyApiStage
     Properties: 
-      Name: "AWSLambdaJava21GraalVMNativeImageApiKey"
-      Description: "AWSLambdaJava21GraalVMNativeImage API Key"
+      Name: "AWSLambdaJavaGraalVM23NativeImageApiKey"
+      Description: "AWSLambdaJavaGraalVM23NativeImage API Key"
       Enabled: true
       GenerateDistinctId: false
-      Value: a6ZbcDefQW12BN56WEX7
+      Value: a6ZbcDefQW12BN56WEX23
       StageKeys:
         - RestApiId: !Ref MyApi
           StageName: !Ref Stage
@@ -89,7 +89,7 @@ Resources:
   GetProductByIdFunction:
     Type: AWS::Serverless::Function
     Properties:
-      FunctionName: GetProductByIdWithPureJava21GraalVMNativeImageLambda
+      FunctionName: GetProductByIdWithPureJavaGraalVM23NativeImageLambda
       Handler: software.amazonaws.example.product.handler.GetProductByIdHandler::handleRequest
       Policies:
         - DynamoDBReadPolicy:
@@ -114,7 +114,7 @@ Resources:
   PutProductFunction:
     Type: AWS::Serverless::Function
     Properties:
-      FunctionName: PutProductWithPureJava21GraalVMNativeImage
+      FunctionName: PutProductWithPureJavaGraalVM23NativeImage
       Handler: software.amazonaws.example.product.handler.CreateProductHandler::handleRequest
       Policies:
         - DynamoDBCrudPolicy:
@@ -136,7 +136,7 @@ Resources:
   ProductsTable:
     Type: AWS::DynamoDB::Table
     Properties:
-      TableName: "AWSLambdaJava21GraalVMNativeImageProductsTable"
+      TableName: "AWSLambdaJavaGraalVM23NativeImageProductsTable"
       PointInTimeRecoverySpecification:
          PointInTimeRecoveryEnabled: true
       AttributeDefinitions:
@@ -152,6 +152,6 @@ Resources:
       
 
 Outputs:
-  AWSLambdaJava21GraalVMNativeImageApiEndpoint:
-    Description: "API Gateway endpoint URL for Prod stage for AWS Lambda Java 21 GraalVM Native Image"
+  AWSLambdaJavaGraalVM23NativeImageApiEndpoint:
+    Description: "API Gateway endpoint URL for Prod stage for AWS Lambda Java GraalVM 23 Native Image"
     Value: !Sub "https://${MyApi}.execute-api.${AWS::Region}.amazonaws.com/prod/products"
