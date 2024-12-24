@@ -9,6 +9,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import software.amazon.awssdk.auth.credentials.DefaultCredentialsProvider;
 import software.amazon.awssdk.core.client.config.ClientOverrideConfiguration;
 import software.amazon.awssdk.http.apache.ApacheHttpClient;
@@ -25,7 +28,7 @@ import software.amazonaws.example.product.entity.Product;
 import software.amazonaws.example.product.entity.Products;
 
 public class DynamoProductDao implements ProductDao {
-
+  private static final Logger logger = LoggerFactory.getLogger(DynamoProductDao.class);
   private static final String PRODUCT_TABLE_NAME = System.getenv("PRODUCT_TABLE_NAME");
 
   private static final DynamoDbClient dynamoDbClient = DynamoDbClient.builder()
@@ -71,6 +74,8 @@ public class DynamoProductDao implements ProductDao {
       .tableName(PRODUCT_TABLE_NAME)
       .limit(20)
       .build());
+
+    logger.info("Scan returned: {} item(s)", scanResponse.count());
 
     List<Product> productList = new ArrayList<>();
 
