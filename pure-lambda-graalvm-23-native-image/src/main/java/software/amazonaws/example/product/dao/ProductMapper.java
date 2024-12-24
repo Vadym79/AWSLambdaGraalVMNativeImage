@@ -20,8 +20,8 @@ public class ProductMapper {
 	}
 
 	public static Map<String, AttributeValue> productToDynamoDb(Product product) {
-		return Map.of(PK, AttributeValue.builder().s(product.id()).build(), NAME,
-				AttributeValue.builder().s(product.name()).build(), PRICE,
-				AttributeValue.builder().n(product.price().toString()).build());
+		return Map.of(PK, AttributeValue.builder().s(product.getId()).build(), NAME,
+				AttributeValue.builder().s(product.getName()).build(), PRICE,
+				AttributeValue.builder().n(product.getPrice().toString()).build());
 	}
 }
