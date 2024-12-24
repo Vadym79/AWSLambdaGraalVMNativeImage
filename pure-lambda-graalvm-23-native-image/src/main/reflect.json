@@ -18,11 +18,13 @@
     "name": "software.amazonaws.example.product.entity.Product",
     "allPublicConstructors": true,
     "allDeclaredFields": true
+     "allPublicMethods": true
   },
   {
     "name": "software.amazonaws.example.product.entity.Products",
     "allPublicConstructors": true,
     "allDeclaredFields": true
+    "allPublicMethods": true
   },
   {
     "name": "com.amazonaws.services.lambda.runtime.events.APIGatewayProxyRequestEvent",
