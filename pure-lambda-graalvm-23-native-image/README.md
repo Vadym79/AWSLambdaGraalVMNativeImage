@@ -5,8 +5,8 @@ curl -s "https://get.sdkman.io" | bash
 
 source "/home/ec2-user/.sdkman/bin/sdkman-init.sh"
 
-3) Install GraalVM 21  (https://www.graalvm.org/latest/docs/getting-started/linux/)
-sdk install java 21.0.2-graal
+3) Install GraalVM  (https://www.graalvm.org/latest/docs/getting-started/linux/)
+ sdk install java 23.0.1-graal
 
 4) Install Native Image  (https://www.graalvm.org/latest/reference-manual/native-image/)
 
