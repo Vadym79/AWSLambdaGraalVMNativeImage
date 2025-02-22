@@ -2,4 +2,4 @@
 
 cd ${LAMBDA_TASK_ROOT:-.}
 
-./aws-pure-lambda-java21-graalvm-native-image 
+./aws-pure-lambda-graalvm-23-native-image-aws-crt-http-client
