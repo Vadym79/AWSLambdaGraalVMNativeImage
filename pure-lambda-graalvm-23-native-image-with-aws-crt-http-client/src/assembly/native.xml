@@ -22,7 +22,7 @@
 			<useDefaultExcludes>true</useDefaultExcludes>
 			<fileMode>0775</fileMode>
 			<includes>
-				<include>aws-pure-lambda-java21-graalvm-native-image-aws-crt-http-client</include>
+				<include>aws-pure-lambda-graalvm-23-native-image-aws-crt-http-client</include>
 				<include>libaws-crt-jni.so</include>
 			</includes>
 		</fileSet>
