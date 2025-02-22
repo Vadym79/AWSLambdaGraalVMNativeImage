@@ -15,17 +15,11 @@ sudo dnf install gcc glibc-devel zlib-devel libstdc++-static
 
 5) Install Maven  
 
-wget https://mirrors.estointernet.in/apache/maven/maven-3/3.8.5/binaries/apache-maven-3.8.5-bin.tar.gz
-tar -xvf apache-maven-3.8.5-bin.tar.gz
-sudo mv apache-maven-3.8.5 /opt/
-
-
-M2_HOME='/opt/apache-maven-3.8.5'
-PATH="$M2_HOME/bin:$PATH"
+/bin:$PATH"
 export PATH
 
 6) Clone git Repo
-git clone https://github.com/Vadym79/AWSLambdaJavaSnapStart.git
+git clone https://github.com/Vadym79/AWSLambdaGraalVMNativeImage.git
 
 7) Build Native Image
 
